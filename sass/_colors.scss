@@ -1,11 +1,13 @@
 :root {
-  --primaryBackground: #ffffff;
-  --primaryColor: #171717;
+  --primaryBackground: #{rgba(#ffffff, 1.0)};
+  --primaryColor: #{rgba(#171717, 1.0)};
+  --primaryBorder: #{rgba(#263238, 0.1)};
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --primaryBackground: #21252b;
-    --primaryColor: #bdc1c6;
+    --primaryBackground: #{rgba(#21252b, 1.0)};
+    --primaryColor: #{rgba(#bdc1c6, 1.0)};
+    --primaryBorder: #{rgba(#ffffff, 0.12)};
   }
 }

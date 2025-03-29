@@ -1,0 +1,60 @@
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+
+  padding: 10px 0;
+
+  background-color: var(--primaryBackground);
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 343px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    border-bottom: 1px solid var(--primaryBorder);
+
+    @include tablet {
+      width: 672px;
+    }
+
+    @include desktop {
+      width: 1280px;
+    }
+  }
+
+  & .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__logo-img {
+    width: 30px;
+    height: auto;
+
+    @include tablet {
+      width: 40px;
+    }
+  }
+
+  &__logo-title {
+    font-family: var(--font-winky-sans), Arial, Helvetica, sans-serif;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: -1px;
+  }
+}
