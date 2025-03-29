@@ -21,18 +21,15 @@ export default function Home() {
 
   return (
     <main>
-      <h1
-        style={{fontFamily: "var(--font-geist-sans)"}}
-      >
-        {translate("title")}
-      </h1>
-      <button
-        onClick={changeLanguage}
-        style={{fontFamily: "var(--font-geist-sans)"}}
-        aria-label={`Switch to ${nextLocale === "en" ? "English" : "Українська"}`}
-      >
-        {nextLocale === "uk" ? "English" : "Українська"}
-      </button>
+      <div className={"container"}>
+        <h1>{translate("title")}</h1>
+        <button
+          onClick={changeLanguage}
+          aria-label={`Switch to ${nextLocale === "en" ? "English" : "Українська"}`}
+        >
+          {nextLocale === "uk" ? "English" : "Українська"}
+        </button>
+      </div>
     </main>
   );
 };
