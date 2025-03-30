@@ -1,5 +1,6 @@
 {
   "Header": {
-    "button": "Каталог"
+    "button": "Каталог",
+    "placeholder": "Пошук книг..."
   }
 }

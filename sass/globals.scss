@@ -52,7 +52,15 @@ ul {
 
 button {
   cursor: pointer;
+}
+
+input,
+input::placeholder,
+button {
   font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
 }
 
 a {

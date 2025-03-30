@@ -1,10 +1,12 @@
 :root {
   --primaryBackground: #{rgba(#ffffff, 1.0)};
+  --searchBackground: #{rgba(#ffffff, 1.0)};
 
   --primaryColor: #{rgba(#171717, 1.0)};
   --primaryBtnColor: #{rgba(#ffffff, 1.0)};
 
   --primaryBorder: #{rgba(#263238, 0.1)};
+  --secondaryBorder: #{rgba(#43a047, 1.0)};
 
   --primaryBtnDefault: #{rgba(#43a047, 1.0)};
   --primaryBtnHover: #{rgba(#4caf50, 1.0)};
@@ -17,11 +19,13 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --primaryBackground: #{rgba(#21252b, 1.0)};
+    --searchBackground: #{rgba(#2c3139, 1.0)};
 
     --primaryColor: #{rgba(#bdc1c6, 1.0)};
     --primaryBtnColor: #{rgba(#ffffff, 1.0)};
 
     --primaryBorder: #{rgba(#ffffff, 0.12)};
+    --secondaryBorder: #{rgba(#40a045, 1.0)};
 
     --primaryBtnDefault: #{rgba(#40a045, 1.0)};
     --primaryBtnHover: #{rgba(#57bc5c, 1.0)};

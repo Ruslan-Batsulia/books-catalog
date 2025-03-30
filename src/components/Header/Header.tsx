@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect } from "react";
+import Search from "./Search/Search";
 import { useTranslations } from "next-intl";
 import { getBooks } from "@/src/common/api";
 import { BooksResponse } from "@/src/common/types";
@@ -50,6 +51,8 @@ export default function Header() {
             {translate("button")}
           </button>
         </div>
+
+        <Search />
 
         <div className={"header__favorite"}>
           <button className={"header__favorite-btn"}>

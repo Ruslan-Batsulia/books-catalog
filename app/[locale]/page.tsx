@@ -1,6 +1,5 @@
 "use client";
 
-import { Header } from "@/src/components";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 
@@ -22,7 +21,6 @@ export default function Home() {
 
   return (
     <>
-      <Header />
       <main>
         <div className={"container"}>
           <h1>{translate("title")}</h1>

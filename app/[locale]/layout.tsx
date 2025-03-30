@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { routing } from "@/i18n/routing";
+import { Header } from "@/src/components";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
@@ -37,6 +38,7 @@ export default async function LocaleLayout({children, params}: Props) {
     <html lang={locale}>
       <body className={`${GeistSans.variable} ${GeistMono.variable} ${WinkySans.variable}`}>
         <NextIntlClientProvider>
+          <Header />
           {children}
         </NextIntlClientProvider>
       </body>
