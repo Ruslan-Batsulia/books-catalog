@@ -10,7 +10,7 @@ import { BooksResponse } from "@/src/common/types";
 import logo from "@/public/images/logo.svg";
 import catalog from "@/public/images/catalog.svg";
 import favoriteList from "@/public/images/favoriteList.svg";
-import readingList from "@/public/images/readingList.svg";
+import readBooks from "@/public/images/readBooks.svg";
 
 import "./Header.scss";
 
@@ -62,7 +62,7 @@ export default function Header() {
 
         <div className={"header__reading"}>
           <button className={"header__reading-btn"}>
-            <Image src={readingList} alt={"Reading List"} className={"header__reading-icon"} />
+            <Image src={readBooks} alt={"Reading List"} className={"header__reading-icon"} />
           </button>
         </div>
       </div>
