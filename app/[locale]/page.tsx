@@ -14,7 +14,7 @@ export default function Home() {
 
   const changeLanguage = () => {
     try {
-      router.replace(pathname, { locale: nextLocale });
+      router.replace(pathname, { locale: nextLocale, scroll: false });
     } catch (error) {
       console.error("Failed to change language:", error);
     }

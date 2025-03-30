@@ -32,7 +32,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 24px;
+    gap: 25px;
   }
 
   &__logo {
@@ -56,5 +56,112 @@
     font-weight: 500;
     line-height: 1.5;
     letter-spacing: -1px;
+  }
+
+  &__catalog {
+    display: flex;
+    align-items: center;
+
+    height: 100%;
+    margin-right: auto;
+  }
+
+  &__catalog-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    background-color: var(--primaryBtnDefault);
+    color: var(--primaryBtnColor);
+    
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    
+    padding: 4px 16px;
+    border: none;
+    border-radius: 5px;
+
+    &:active {
+      background-color: var(--primaryBtnActive);
+    }
+
+    @include desktop {
+      transition: background-color 150ms linear;
+
+      &:hover {
+        background-color: var(--primaryBtnHover);
+      }
+    }
+  }
+
+  &__catalog-icon {
+    width: 16px;
+    height: auto;
+  }
+  
+  &__favorite {
+    display: flex;
+    align-items: center;
+
+    height: 100%;
+  }
+
+  &__favorite-btn {
+    padding: 4px;
+    border: none;
+    border-radius: 5px;
+
+    background-color: var(--secondaryBtnDefault);
+
+    &:active {
+      background-color: var(--secondaryBtnActive);
+    }
+
+    @include desktop {
+      transition: background-color 150ms linear;
+  
+      &:hover {
+        background-color: var(--secondaryBtnHover);
+      }
+    }
+  }
+
+  &__favorite-icon {
+    width: 32px;
+    height: auto;
+  }
+
+  &__reading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+  }
+
+  &__reading-btn {
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+
+    background-color: var(--secondaryBtnDefault);
+
+    &:active {
+      background-color: var(--secondaryBtnActive);
+    }
+
+    @include desktop {
+      transition: background-color 150ms linear;
+  
+      &:hover {
+        background-color: var(--secondaryBtnHover);
+      }
+    }
+  }
+
+  &__reading-icon {
+    width: auto;
+    height: 30px;
   }
 }
