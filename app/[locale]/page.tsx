@@ -1,9 +1,11 @@
 "use client";
 
 import { Provider } from "react-redux";
+import { Header } from "@/src/components";
 import { store } from "@/src/common/redux/store";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
+import { useHasMounted } from "@/src/common/hooks/useHasMounted";
 import TemporaryBtns from "@/src/components/TemporaryBtns/TemporaryBtns";
 
 export default function Home() {
@@ -11,6 +13,7 @@ export default function Home() {
   const pathname = usePathname();
   const currentLocale = useLocale();
   const translate = useTranslations("Home");
+  const hasMounted = useHasMounted();
 
   const nextLocale = currentLocale === "en" ? "uk" : "en";
 
@@ -22,9 +25,12 @@ export default function Home() {
     }
   };
 
+  if (!hasMounted) return null;
+
   return (
     <>
       <Provider store={store}>
+        <Header />
         <main>
           <div className={"container"}>
             <h1>{translate("title")}</h1>

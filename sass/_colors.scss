@@ -1,45 +1,64 @@
-:root {
-  --primaryBackground: #{rgba(#ffffff, 1.0)};
-  --searchBackground: #{rgba(#ffffff, 1.0)};
-  
-  --primaryColor: #{rgba(#171717, 1.0)};
-  --primaryBtnColor: #{rgba(#ffffff, 1.0)};
+$theme-light: (
+  primaryBackground: (hex: #ffffff, alpha: 1.0),
+  searchBackground: (hex: #ffffff, alpha: 1.0),
 
-  --primaryBorder: #{rgba(#263238, 0.1)};
-  --secondaryBorder: #{rgba(#43a047, 1.0)};
+  primaryColor: (hex: #171717, alpha: 1.0),
+  primaryBtnColor: (hex: #ffffff, alpha: 1.0),
 
-  --primaryBtnDefault: #{rgba(#43a047, 1.0)};
-  --primaryBtnHover: #{rgba(#4caf50, 1.0)};
-  --primaryBtnActive: #{rgba(#347c37, 1.0)};
-  --secondaryBtnDefault: #{rgba(#ffffff, 0.0)};
-  --secondaryBtnHover: #{rgba(#263238, 0.05)};
-  --secondaryBtnActive: #{rgba(#263238, 0.1)};
-  
-  --skeletonBackground: #{rgba(#e2e5e7, 1.0)};
-  --skeletonGradientTo: #{rgba(#ffffff, 0)};
-  --skeletonGradientFrom: #{rgba(#ffffff, 0.5)};
+  primaryBorder: (hex: #263238, alpha: 0.1),
+  secondaryBorder: (hex: #43a047, alpha: 1.0),
+
+  primaryBtnDefault: (hex: #43a047, alpha: 1.0),
+  primaryBtnHover: (hex: #4caf50, alpha: 1.0),
+  primaryBtnActive: (hex: #347c37, alpha: 1.0),
+  secondaryBtnDefault: (hex: #ffffff, alpha: 0.0),
+  secondaryBtnHover: (hex: #263238, alpha: 0.05),
+  secondaryBtnActive: (hex: #263238, alpha: 0.1),
+
+  skeletonBackground: (hex: #e2e5e7, alpha: 1.0),
+  skeletonGradientTo: (hex: #ffffff, alpha: 0),
+  skeletonGradientFrom: (hex: #ffffff, alpha: 0.5),
+);
+
+$theme-dark: (
+  primaryBackground: (hex: #21252b, alpha: 1.0),
+  searchBackground: (hex: #2c3139, alpha: 1.0),
+
+  primaryColor: (hex: #bdc1c6, alpha: 1.0),
+  primaryBtnColor: (hex: #ffffff, alpha: 1.0),
+
+  primaryBorder: (hex: #ffffff, alpha: 0.12),
+  secondaryBorder: (hex: #40a045, alpha: 1.0),
+
+  primaryBtnDefault: (hex: #40a045, alpha: 1.0),
+  primaryBtnHover: (hex: #57bc5c, alpha: 1.0),
+  primaryBtnActive: (hex: #347c37, alpha: 1.0),
+  secondaryBtnDefault: (hex: #ffffff, alpha: 0.0),
+  secondaryBtnHover: (hex: #ffffff, alpha: 0.05),
+  secondaryBtnActive: (hex: #ffffff, alpha: 0.1),
+
+  skeletonBackground: (hex: #4f5660, alpha: 1.0),
+  skeletonGradientTo: (hex: #8d9094, alpha: 0),
+  skeletonGradientFrom: (hex: #8d9094, alpha: 0.5),
+);
+
+@mixin generate-theme-variables($theme-map) {
+  @each $key, $values in $theme-map {
+    --#{$key}: #{rgba(map-get($values, hex), map-get($values, alpha))};
+  }
+}
+
+:root,
+:root[data-theme="light"] {
+  @include generate-theme-variables($theme-light);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --primaryBackground: #{rgba(#21252b, 1.0)};
-    --searchBackground: #{rgba(#2c3139, 1.0)};
-    
-    --primaryColor: #{rgba(#bdc1c6, 1.0)};
-    --primaryBtnColor: #{rgba(#ffffff, 1.0)};
-    
-    --primaryBorder: #{rgba(#ffffff, 0.12)};
-    --secondaryBorder: #{rgba(#40a045, 1.0)};
-
-    --primaryBtnDefault: #{rgba(#40a045, 1.0)};
-    --primaryBtnHover: #{rgba(#57bc5c, 1.0)};
-    --primaryBtnActive: #{rgba(#347c37, 1.0)};
-    --secondaryBtnDefault: #{rgba(#ffffff, 0.0)};
-    --secondaryBtnHover: #{rgba(#ffffff, 0.05)};
-    --secondaryBtnActive: #{rgba(#ffffff, 0.1)};
-    
-    --skeletonBackground: #{rgba(#4f5660, 1.0)};
-    --skeletonGradientTo: #{rgba(#8d9094, 0)};
-    --skeletonGradientFrom: #{rgba(#8d9094, 0.5)};
+    @include generate-theme-variables($theme-dark);
   }
+}
+
+:root[data-theme="dark"] {
+  @include generate-theme-variables($theme-dark);
 }
