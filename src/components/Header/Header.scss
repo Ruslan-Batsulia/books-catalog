@@ -85,16 +85,16 @@
     border: none;
     border-radius: 5px;
 
-    &:active {
-      background-color: var(--primaryBtnActive);
-    }
-
     @include desktop {
       transition: background-color 150ms linear;
-
+  
       &:hover {
         background-color: var(--primaryBtnHover);
       }
+    }
+
+    &:active {
+      background-color: var(--primaryBtnActive);
     }
   }
 
@@ -119,16 +119,16 @@
 
     background-color: var(--secondaryBtnDefault);
 
-    &:active {
-      background-color: var(--secondaryBtnActive);
-    }
-
     @include desktop {
       transition: background-color 150ms linear;
   
       &:hover {
         background-color: var(--secondaryBtnHover);
       }
+    }
+
+    &:active {
+      background-color: var(--secondaryBtnActive);
     }
   }
 
@@ -154,16 +154,16 @@
 
     background-color: var(--secondaryBtnDefault);
 
-    &:active {
-      background-color: var(--secondaryBtnActive);
-    }
-
     @include desktop {
       transition: background-color 150ms linear;
   
       &:hover {
         background-color: var(--secondaryBtnHover);
       }
+    }
+
+    &:active {
+      background-color: var(--secondaryBtnActive);
     }
   }
 

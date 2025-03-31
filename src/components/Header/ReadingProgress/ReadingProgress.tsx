@@ -34,7 +34,11 @@ export default function ReadingProgress() {
         <div
           className={"reading-progress__filled"}
           style={{
-            width: hasMounted ? `${(readingProgress / readingGoal) * 100}%` : "0%",
+            width: hasMounted
+              ? readingProgress < readingGoal
+              ? `${(readingProgress / readingGoal) * 100}%`
+              : "100%"
+              : "0%",
           }}
         />
       </div>

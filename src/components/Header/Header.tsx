@@ -1,13 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Search from "./Search/Search";
 import { Provider } from "react-redux";
 import { useTranslations } from "next-intl";
 // import { getBooks } from "@/src/common/api";
 import { store } from "@/src/common/redux/store";
 // import { BooksResponse } from "@/src/common/types";
+import { useTheme } from "@/src/common/hooks/useTheme";
 import ReadingProgress from "./ReadingProgress/ReadingProgress";
 
 import logo from "@/public/images/logo.svg";
@@ -19,6 +20,37 @@ import "./Header.scss";
 
 export default function Header() {
   const translate = useTranslations("Header");
+
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { resolvedTheme } = useTheme();
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 1439.9px)");
+
+    const handleResize = () => {
+      if (mediaQuery.matches) {
+        setIsOpen(false);
+      }
+    };
+
+    mediaQuery.addEventListener("change", handleResize);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    }
+  }, [isOpen]);
 
   useEffect(() => {
     // const fetchBooks = async () => {
