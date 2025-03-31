@@ -39,6 +39,8 @@
     display: flex;
     align-items: center;
     gap: 4px;
+
+    flex: 0 1 auto;
   }
 
   &__logo-img {
@@ -63,6 +65,8 @@
     align-items: center;
 
     height: 100%;
+
+    flex: 0 1 auto;
   }
 
   &__catalog-btn {
@@ -104,6 +108,8 @@
     align-items: center;
 
     height: 100%;
+
+    flex: 0 1 auto;
   }
 
   &__favorite-btn {
@@ -137,6 +143,8 @@
     justify-content: center;
 
     height: 100%;
+
+    flex: 0 1 auto;
   }
 
   &__reading-btn {

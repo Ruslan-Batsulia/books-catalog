@@ -1,7 +1,7 @@
 :root {
   --primaryBackground: #{rgba(#ffffff, 1.0)};
   --searchBackground: #{rgba(#ffffff, 1.0)};
-
+  
   --primaryColor: #{rgba(#171717, 1.0)};
   --primaryBtnColor: #{rgba(#ffffff, 1.0)};
 
@@ -14,16 +14,20 @@
   --secondaryBtnDefault: #{rgba(#ffffff, 0.0)};
   --secondaryBtnHover: #{rgba(#263238, 0.05)};
   --secondaryBtnActive: #{rgba(#263238, 0.1)};
+  
+  --skeletonBackground: #{rgba(#e2e5e7, 1.0)};
+  --skeletonGradientTo: #{rgba(#ffffff, 0)};
+  --skeletonGradientFrom: #{rgba(#ffffff, 0.5)};
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --primaryBackground: #{rgba(#21252b, 1.0)};
     --searchBackground: #{rgba(#2c3139, 1.0)};
-
+    
     --primaryColor: #{rgba(#bdc1c6, 1.0)};
     --primaryBtnColor: #{rgba(#ffffff, 1.0)};
-
+    
     --primaryBorder: #{rgba(#ffffff, 0.12)};
     --secondaryBorder: #{rgba(#40a045, 1.0)};
 
@@ -33,5 +37,9 @@
     --secondaryBtnDefault: #{rgba(#ffffff, 0.0)};
     --secondaryBtnHover: #{rgba(#ffffff, 0.05)};
     --secondaryBtnActive: #{rgba(#ffffff, 0.1)};
+    
+    --skeletonBackground: #{rgba(#4f5660, 1.0)};
+    --skeletonGradientTo: #{rgba(#8d9094, 0)};
+    --skeletonGradientFrom: #{rgba(#8d9094, 0.5)};
   }
 }

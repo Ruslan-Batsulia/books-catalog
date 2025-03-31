@@ -1,0 +1,33 @@
+.reading-progress-skeleton {
+  display: flex;
+  flex-direction: column;
+  padding: 4px;
+  flex-basis: 200px;
+  min-width: 200px;
+  overflow: hidden;
+
+  &__line.skeleton {
+    height: 32px;
+    border-radius: 5px;
+  }
+
+  & .skeleton {
+    background-color: var(--skeletonBackground);
+    background-image: linear-gradient(
+      90deg,
+      var(--skeletonGradientTo),
+      var(--skeletonGradientFrom),
+      var(--skeletonGradientTo),
+    );
+    background-size: 40px 175%;
+    background-repeat: no-repeat;
+    background-position: -100% 0;
+    animation: shine 2s ease infinite;
+  }
+}
+
+@keyframes shine {
+  to {
+    background-position: 135% 0;
+  }
+}
