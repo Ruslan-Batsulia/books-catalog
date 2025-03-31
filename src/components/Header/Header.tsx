@@ -2,16 +2,13 @@
 
 import Image from "next/image";
 import { useEffect } from "react";
-import dynamic from "next/dynamic";
 import Search from "./Search/Search";
 import { Provider } from "react-redux";
 import { useTranslations } from "next-intl";
-import { getBooks } from "@/src/common/api";
+// import { getBooks } from "@/src/common/api";
 import { store } from "@/src/common/redux/store";
-import { BooksResponse } from "@/src/common/types";
+// import { BooksResponse } from "@/src/common/types";
 import ReadingProgress from "./ReadingProgress/ReadingProgress";
-
-// const ReadingProgress = dynamic(() => import("./ReadingProgress/ReadingProgress"), { ssr: false });
 
 import logo from "@/public/images/logo.svg";
 import catalog from "@/public/images/catalog.svg";
@@ -24,19 +21,19 @@ export default function Header() {
   const translate = useTranslations("Header");
 
   useEffect(() => {
-    const fetchBooks = async () => {
-      try {
-        const response: BooksResponse | null = await getBooks();
+    // const fetchBooks = async () => {
+    //   try {
+    //     const response: BooksResponse | null = await getBooks();
 
-        if (response) {
-          console.log("Books fetched successfully:", response.results);
-        } else {
-          console.log("Failed to fetch books.");
-        }
-      } catch (error) {
-        console.log("Error fetching books:", error);
-      };
-    };
+    //     if (response) {
+    //       console.log("Books fetched successfully:", response.results);
+    //     } else {
+    //       console.log("Failed to fetch books.");
+    //     }
+    //   } catch (error) {
+    //     console.log("Error fetching books:", error);
+    //   };
+    // };
 
     // fetchBooks();
   }, []);

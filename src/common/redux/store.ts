@@ -1,9 +1,11 @@
+import readingGoalReducer from "./readingGoal";
 import { configureStore } from "@reduxjs/toolkit";
 import readingProgressReducer from "./readingProgress";
 
 export const store = configureStore({
   reducer: {
     readingProgress: readingProgressReducer,
+    readingGoal: readingGoalReducer,
   },
 });
 

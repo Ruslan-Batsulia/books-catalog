@@ -1,30 +1,43 @@
 "use client";
 
-import {
-  incrementReadingProgress,
-  decrementReadingProgress,
-} from "@/src/common/redux/readingProgress";
+import { useSelector } from "react-redux";
+import { useTranslations } from "next-intl";
 import { RootState } from "@/src/common/redux/store";
-import { useSelector, useDispatch } from "react-redux";
 import { useHasMounted } from "@/src/common/hooks/useHasMounted";
-import ReadingProgressSkeleton from "./ReadingProgressSkeleton/ReadingProgressSkeleton";
 
 import "./ReadingProgress.scss";
 
 export default function ReadingProgress() {
+  const translate = useTranslations("Header");
   const hasMounted = useHasMounted();
-  const dispatch = useDispatch();
   const readingProgress = useSelector(
     (state: RootState) => state.readingProgress.readProg
   );
-
-  if (!hasMounted) return <ReadingProgressSkeleton />;
+  const readingGoal = useSelector(
+    (state: RootState) => state.readingGoal.readingGoal
+  );
 
   return (
     <div className={"reading-progress"}>
-      <span>{readingProgress} {"прочитано з 50"}</span>
-      <button onClick={() => dispatch(decrementReadingProgress())}>➖</button>
-      <button onClick={() => dispatch(incrementReadingProgress())}>➕</button>
+      <div className={"reading-progress__title"}>
+        <span className={"reading-progress__number"}>
+          {hasMounted ? readingProgress : 0}
+        </span>
+        <span className={"reading-progress__text"}>
+          {translate("readingGoal")}
+        </span>
+        <span className={"reading-progress__number"}>
+          {hasMounted ? readingGoal : 0}
+        </span>
+      </div>
+      <div className={"reading-progress__bar"}>
+        <div
+          className={"reading-progress__filled"}
+          style={{
+            width: hasMounted ? `${(readingProgress / readingGoal) * 100}%` : "0%",
+          }}
+        />
+      </div>
     </div>
   );
 };

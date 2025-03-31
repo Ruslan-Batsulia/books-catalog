@@ -1,4 +1,4 @@
-.reading-progress-skeleton {
+.skeleton {
   display: flex;
   flex-direction: column;
   padding: 4px;
@@ -6,12 +6,12 @@
   min-width: 200px;
   overflow: hidden;
 
-  &__line.skeleton {
+  &__line.skeleton-anime {
     height: 32px;
     border-radius: 5px;
   }
 
-  & .skeleton {
+  & .skeleton-anime {
     background-color: var(--skeletonBackground);
     background-image: linear-gradient(
       90deg,

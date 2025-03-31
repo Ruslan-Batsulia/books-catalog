@@ -1,9 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const savedReadingProgress =
-  typeof window !== "undefined"
-    ? Number(localStorage.getItem("savedReadingProgress")) || 10
-    : 10;
+const savedReadingProgress = typeof window !== "undefined"
+  ? Number(localStorage.getItem("savedReadingProgress")) || 0
+  : 0;
 
 type ReadingProgressState = {
   readProg: number;

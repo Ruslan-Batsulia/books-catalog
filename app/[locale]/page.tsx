@@ -1,7 +1,10 @@
 "use client";
 
+import { Provider } from "react-redux";
+import { store } from "@/src/common/redux/store";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
+import TemporaryBtns from "@/src/components/TemporaryBtns/TemporaryBtns";
 
 export default function Home() {
   const router = useRouter();
@@ -21,17 +24,21 @@ export default function Home() {
 
   return (
     <>
-      <main>
-        <div className={"container"}>
-          <h1>{translate("title")}</h1>
-          <button
-            onClick={changeLanguage}
-            aria-label={`Switch to ${nextLocale === "en" ? "English" : "Українська"}`}
-          >
-            {nextLocale === "uk" ? "English" : "Українська"}
-          </button>
-        </div>
-      </main>
+      <Provider store={store}>
+        <main>
+          <div className={"container"}>
+            <h1>{translate("title")}</h1>
+            <button
+              onClick={changeLanguage}
+              aria-label={`Switch to ${nextLocale === "en" ? "English" : "Українська"}`}
+            >
+              {nextLocale === "uk" ? "English" : "Українська"}
+            </button>
+
+            <TemporaryBtns />
+          </div>
+        </main>
+      </Provider>
     </>
   );
 };
