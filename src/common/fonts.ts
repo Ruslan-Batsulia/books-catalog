@@ -17,3 +17,12 @@ export const GeistMono = localFont({
   variable: "--font-geist-mono",
   display: "swap",
 });
+
+export const WinkySans = localFont({
+  src: [{
+    path: "./../../public/fonts/WinkySans.woff2",
+    weight: "100 900",
+  }],
+  variable: "--font-winky-sans",
+  display: "swap",
+});

@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
-import { GeistSans, GeistMono } from "@/src/common/fonts";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { GeistSans, GeistMono, WinkySans } from "@/src/common/fonts";
 
 import "@/sass/globals.scss";
 
@@ -35,7 +35,7 @@ export default async function LocaleLayout({children, params}: Props) {
 
   return (
     <html lang={locale}>
-      <body className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      <body className={`${GeistSans.variable} ${GeistMono.variable} ${WinkySans.variable}`}>
         <NextIntlClientProvider>
           {children}
         </NextIntlClientProvider>
