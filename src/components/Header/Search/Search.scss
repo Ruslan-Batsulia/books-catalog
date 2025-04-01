@@ -3,11 +3,16 @@
   align-items: center;
   max-height: fit-content;
 
-  margin-right: auto;
   border: 1px solid var(--secondaryBorder);
   border-radius: 5px;
 
+  width: 100%;
+
   flex: 1 1 auto;
+
+  @include onlyTablet {
+    width: 50%;
+  }
 
   &__input {
     border: none;

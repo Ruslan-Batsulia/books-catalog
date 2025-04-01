@@ -16,8 +16,6 @@
     position: relative;
     padding: 10px var(--paddingContainer);
 
-    outline: 1px solid blue;
-
     &::after {
       content: "";
       position: absolute;
@@ -62,60 +60,126 @@
     line-height: 1.5;
     letter-spacing: -1px;
   }
-
-  &__menu {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 25px;
-
+  
+  &__menu-container {
     flex: 1 1 auto;
+    width: 100%;
+    height: calc(100vh - 100%);
+    max-height: calc(100vh - 100%);
 
+    transition: max-height 500ms linear;
+    
     position: absolute;
     top: 100%;
     left: 0;
-
-    width: 100%;
-    min-height: 100vh;
-    padding: 10px var(--paddingContainer);
-
-    outline: 1px solid red;
-
+    overflow: hidden;
+    
+    background-color: var(--primaryBackground);
+    
     @include desktop {
       position: static;
-      flex-direction: row;
-      align-items: center;
       
       width: fit-content;
-      min-height: initial;
-      padding: 0;
+      height: initial;
+      max-height: initial;
+    }
+
+    &--close {
+      max-height: 0;
+  
+      @include desktop {
+        max-height: initial;
+      }
     }
   }
 
+  &__burger-menu {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+
+    height: 100%;
+    width: fit-content;
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__burger-menu-btn {
+    padding: 4px;
+    border: none;
+    border-radius: 5px;
+
+    background-color: var(--secondaryBtnDefault);
+
+    @include desktop {
+      transition: background-color 150ms linear;
+  
+      &:hover {
+        background-color: var(--secondaryBtnHover);
+      }
+    }
+
+    &:active {
+      background-color: var(--secondaryBtnActive);
+    }
+  }
+
+  &__burger-menu-icon {
+    width: 32px;
+    height: auto;
+  }
+  
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 25px;
+    
+    width: 100%;
+    height: fit-content;
+    padding: 10px var(--paddingContainer);
+    
+    @include desktop {
+      flex-direction: row;
+      align-items: center;
+      padding: 0;
+    }
+  }
+  
   &__catalog {
     display: flex;
     align-items: center;
 
     height: 100%;
+    width: 100%;
 
     flex: 0 1 auto;
+
+    @include onlyTablet {
+      width: 50%;
+    }
+
+    @include desktop {
+      width: fit-content;
+    }
   }
 
   &__catalog-btn {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
 
     background-color: var(--primaryBtnDefault);
     color: var(--primaryBtnColor);
     
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1.5;
-    
     padding: 4px 16px;
     border: none;
     border-radius: 5px;
+    width: 100%;
 
     @include desktop {
       transition: background-color 150ms linear;
@@ -133,6 +197,24 @@
   &__catalog-icon {
     width: 16px;
     height: auto;
+  }
+
+  &__interactive {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+
+    width: 100%;
+    height: 100%;
+
+    @include onlyTablet {
+      width: 50%;
+    }
+
+    @include desktop {
+      justify-content: initial;
+      width: fit-content;
+    }
   }
   
   &__favorite {
