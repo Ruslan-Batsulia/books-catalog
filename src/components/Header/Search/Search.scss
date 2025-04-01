@@ -1,6 +1,7 @@
 .search {
   display: flex;
   align-items: center;
+  max-height: fit-content;
 
   margin-right: auto;
   border: 1px solid var(--secondaryBorder);

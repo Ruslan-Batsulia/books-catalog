@@ -7,7 +7,7 @@ import {
   decrementReadingProgress,
 } from "@/src/common/redux";
 import { useDispatch } from "react-redux";
-import { useChangeTheme } from "@/src/common/hooks/useChangeTheme";
+import { useChangeTheme } from "@/src/common/hook/useChangeTheme";
 
 import "./TemporaryBtns.scss";
 

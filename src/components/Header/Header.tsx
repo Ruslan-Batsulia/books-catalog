@@ -44,29 +44,31 @@ export default function Header() {
           <span className={"header__logo-title"}>{"Books Catalog"}</span>
         </div>
 
-        <div className={"header__catalog"}>
-          <button
-            className={"header__catalog-btn"}
-          >
-            <Image src={catalog} alt={"Catalog"} className={"header__catalog-icon"} />
-            {translate("button")}
-          </button>
-        </div>
+        <div className={"header__menu"}>
+          <div className={"header__catalog"}>
+            <button
+              className={"header__catalog-btn"}
+            >
+              <Image src={catalog} alt={"Catalog"} className={"header__catalog-icon"} />
+              {translate("button")}
+            </button>
+          </div>
 
-        <Search />
+          <Search />
 
-        <ReadingProgress />
+          <ReadingProgress />
 
-        <div className={"header__favorite"}>
-          <button className={"header__favorite-btn"}>
-            <Image src={favoriteList} alt={"Favorite List"} className={"header__favorite-icon"} />
-          </button>
-        </div>
+          <div className={"header__favorite"}>
+            <button className={"header__favorite-btn"}>
+              <Image src={favoriteList} alt={"Favorite List"} className={"header__favorite-icon"} />
+            </button>
+          </div>
 
-        <div className={"header__reading"}>
-          <button className={"header__reading-btn"}>
-            <Image src={readBooks} alt={"Reading List"} className={"header__reading-icon"} />
-          </button>
+          <div className={"header__reading"}>
+            <button className={"header__reading-btn"}>
+              <Image src={readBooks} alt={"Reading List"} className={"header__reading-icon"} />
+            </button>
+          </div>
         </div>
       </div>
     </header>

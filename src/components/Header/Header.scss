@@ -5,34 +5,37 @@
   width: 100%;
   z-index: 100;
 
-  padding: 10px 0;
-
   background-color: var(--primaryBackground);
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    width: 343px;
-    left: 50%;
-    transform: translateX(-50%);
-
-    border-bottom: 1px solid var(--primaryBorder);
-
-    @include tablet {
-      width: 672px;
-    }
-
-    @include desktop {
-      width: 1280px;
-    }
-  }
 
   & .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 25px;
+
+    position: relative;
+    padding: 10px var(--paddingContainer);
+
+    outline: 1px solid blue;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 343px;
+      left: 50%;
+      transform: translateX(-50%);
+  
+      border-bottom: 1px solid var(--primaryBorder);
+  
+      @include tablet {
+        width: 672px;
+      }
+  
+      @include desktop {
+        width: 1280px;
+      }
+    }
   }
 
   &__logo {
@@ -58,6 +61,35 @@
     font-weight: 500;
     line-height: 1.5;
     letter-spacing: -1px;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+
+    flex: 1 1 auto;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    width: 100%;
+    min-height: 100vh;
+    padding: 10px var(--paddingContainer);
+
+    outline: 1px solid red;
+
+    @include desktop {
+      position: static;
+      flex-direction: row;
+      align-items: center;
+      
+      width: fit-content;
+      min-height: initial;
+      padding: 0;
+    }
   }
 
   &__catalog {

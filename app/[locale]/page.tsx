@@ -5,7 +5,7 @@ import { Header } from "@/src/components";
 import { store } from "@/src/common/redux";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
-import { useHasMounted } from "@/src/common/hooks/useHasMounted";
+import { useHasMounted } from "@/src/common/hook/useHasMounted";
 import TemporaryBtns from "@/src/components/TemporaryBtns/TemporaryBtns";
 
 export default function Home() {

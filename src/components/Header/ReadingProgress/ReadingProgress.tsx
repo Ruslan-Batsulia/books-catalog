@@ -3,7 +3,7 @@
 import { useSelector } from "react-redux";
 import { useTranslations } from "next-intl";
 import { StoreType } from "@/src/common/redux";
-import { useHasMounted } from "@/src/common/hooks/useHasMounted";
+import { useHasMounted } from "@/src/common/hook/useHasMounted";
 
 import "./ReadingProgress.scss";
 
