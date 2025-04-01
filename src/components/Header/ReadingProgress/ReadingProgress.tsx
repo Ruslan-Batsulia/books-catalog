@@ -2,7 +2,7 @@
 
 import { useSelector } from "react-redux";
 import { useTranslations } from "next-intl";
-import { RootState } from "@/src/common/redux/store";
+import { StoreType } from "@/src/common/redux";
 import { useHasMounted } from "@/src/common/hooks/useHasMounted";
 
 import "./ReadingProgress.scss";
@@ -10,12 +10,8 @@ import "./ReadingProgress.scss";
 export default function ReadingProgress() {
   const translate = useTranslations("Header");
   const hasMounted = useHasMounted();
-  const readingProgress = useSelector(
-    (state: RootState) => state.readingProgress.readProg
-  );
-  const readingGoal = useSelector(
-    (state: RootState) => state.readingGoal.readingGoal
-  );
+  const readingProgress = useSelector((state: StoreType) => state.readingProgress.readingProgress);
+  const readingGoal = useSelector((state: StoreType) => state.readingGoal.readingGoal);
 
   return (
     <div className={"reading-progress"}>

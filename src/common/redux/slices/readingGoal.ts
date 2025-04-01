@@ -1,20 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const savedGoal = typeof window !== "undefined"
-  ? Number(localStorage.getItem("savedReadingGoal")) || 10
-  : 10;
-
-type GoalState = {
-  readingGoal: number;
-};
-
-const initialState: GoalState = {
-  readingGoal: savedGoal,
-};
-
 const readingGoalSlice = createSlice({
   name: "readingGoal",
-  initialState,
+  initialState: {
+    readingGoal: (typeof window !== "undefined")
+      ? (Number(localStorage.getItem("savedReadingGoal")) || 10) as number
+      : 10 as number
+  },
   reducers: {
     incrementReadingGoal: (state) => {
       state.readingGoal += 1;
@@ -40,9 +32,8 @@ const readingGoalSlice = createSlice({
 });
 
 export const {
+  setReadingGoal,
   incrementReadingGoal,
   decrementReadingGoal,
-  setReadingGoal,
 } = readingGoalSlice.actions;
-
 export default readingGoalSlice.reducer;

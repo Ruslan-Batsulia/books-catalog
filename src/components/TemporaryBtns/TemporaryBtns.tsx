@@ -1,13 +1,11 @@
 "use client";
 
 import {
-  decrementReadingProgress,
-  incrementReadingProgress
-} from "@/src/common/redux/readingProgress";
-import {
+  incrementReadingGoal,
   decrementReadingGoal,
-  incrementReadingGoal
-} from "@/src/common/redux/readingGoal";
+  incrementReadingProgress,
+  decrementReadingProgress,
+} from "@/src/common/redux";
 import { useDispatch } from "react-redux";
 import { useChangeTheme } from "@/src/common/hooks/useChangeTheme";
 
@@ -15,38 +13,59 @@ import "./TemporaryBtns.scss";
 
 export default function TemporaryBtns() {
   const dispatch = useDispatch();
-  const { Theme, ThemeChange } = useChangeTheme();
+  const { theme, setTheme } = useChangeTheme();
 
   return (
     <div className={"temporary-btns"}>
-      <div>
+      <div className={"temporary-btns__div"}>
         <span>{"Додати/Відняти книгу з прочитаних"}</span>
-        <button onClick={() => dispatch(incrementReadingProgress())}>
+        <button
+          className={"temporary-btns__button"}
+          onClick={() => dispatch(incrementReadingProgress())}
+        >
           {"+"}
         </button>
-        <button onClick={() => dispatch(decrementReadingProgress())}>
+        <button
+          className={"temporary-btns__button"}
+          onClick={() => dispatch(decrementReadingProgress())}
+        >
           {"-"}
         </button>
       </div>
 
-      <div>
+      <div className={"temporary-btns__div"}>
         <span>{"Додати/Відняти книгу з мети"}</span>
-        <button onClick={() => dispatch(incrementReadingGoal())}>
+        <button
+          className={"temporary-btns__button"}
+          onClick={() => dispatch(incrementReadingGoal())}
+        >
           {"+"}
         </button>
-        <button onClick={() => dispatch(decrementReadingGoal())}>
+        <button
+          className={"temporary-btns__button"}
+          onClick={() => dispatch(decrementReadingGoal())}
+        >
           {"-"}
         </button>
       </div>
 
-      <div>
-        <button onClick={() => ThemeChange("light")} disabled={Theme === "light"}>
+      <div className={"temporary-btns__div"}>
+        <button
+          className={"temporary-btns__button"}
+          onClick={() => setTheme("light")} disabled={theme === "light"}
+        >
           {"Light"}
         </button>
-        <button onClick={() => ThemeChange("dark")} disabled={Theme === "dark"}>
+        <button
+          className={"temporary-btns__button"}
+          onClick={() => setTheme("dark")} disabled={theme === "dark"}
+        >
           {"Dark"}
         </button>
-        <button onClick={() => ThemeChange("system")} disabled={Theme === "system"}>
+        <button
+          className={"temporary-btns__button"}
+          onClick={() => setTheme("system")} disabled={theme === "system"}
+        >
           {"System"}
         </button>
       </div>

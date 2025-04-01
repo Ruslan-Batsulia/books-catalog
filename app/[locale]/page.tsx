@@ -2,7 +2,7 @@
 
 import { Provider } from "react-redux";
 import { Header } from "@/src/components";
-import { store } from "@/src/common/redux/store";
+import { store } from "@/src/common/redux";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { useHasMounted } from "@/src/common/hooks/useHasMounted";

@@ -2,26 +2,15 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type ThemeStateType = "dark" | "light" | "system";
 
-type ThemeState = {
-  theme: ThemeStateType;
-};
-
-const getInitialTheme = (): ThemeStateType => {
-  if (typeof window !== "undefined") {
-    return (localStorage.getItem("theme") as ThemeStateType) || "system";
-  }
-  return "system";
-};
-
-const initialState: ThemeState = {
-  theme: getInitialTheme(),
-};
-
-const changeTheme = createSlice({
+const changeThemeSlice = createSlice({
   name: "changeTheme",
-  initialState,
+  initialState: {
+    theme: (typeof window !== "undefined")
+      ? (localStorage.getItem("theme") as ThemeStateType) || "system" as ThemeStateType
+      : "system" as ThemeStateType
+  },
   reducers: {
-    setTheme: (state, action: PayloadAction<ThemeStateType>) => {
+    setChangeTheme: (state, action: PayloadAction<ThemeStateType>) => {
       state.theme = action.payload;
 
       if (typeof window !== "undefined") {
@@ -37,5 +26,5 @@ const changeTheme = createSlice({
   },
 });
 
-export const { setTheme } = changeTheme.actions;
-export default changeTheme.reducer;
+export const { setChangeTheme } = changeThemeSlice.actions;
+export default changeThemeSlice.reducer;

@@ -5,17 +5,18 @@
 
   margin-top: 10px;
 
-  & > div {
+  &__div {
     display: flex;
     gap: 4px;
   }
 
-  & > div > button {
+  &__button {
     line-height: 1;
     display: flex;
     align-items: center;
     justify-content: center;
 
     min-width: 24px;
+    padding: 0 4px;
   }
 }

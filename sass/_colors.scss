@@ -1,3 +1,5 @@
+@use "sass:map";
+
 $theme-light: (
   primaryBackground: (hex: #ffffff, alpha: 1.0),
   searchBackground: (hex: #ffffff, alpha: 1.0),
@@ -42,9 +44,13 @@ $theme-dark: (
   skeletonGradientFrom: (hex: #8d9094, alpha: 0.5),
 );
 
+@function color-to-rgba($color, $alpha) {
+  @return rgba($color, $alpha);
+}
+
 @mixin generate-theme-variables($theme-map) {
   @each $key, $values in $theme-map {
-    --#{$key}: #{rgba(map-get($values, hex), map-get($values, alpha))};
+    --#{$key}: #{color-to-rgba(map.get($values, hex), map.get($values, alpha))};
   }
 }
 
