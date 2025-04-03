@@ -1,6 +1,6 @@
 import { BooksResponse } from "./types";
 
-const API_URL = "https://gnikdroy.pythonanywhere.com/api" as const;
+const API_URL: string = process.env.NEXT_PUBLIC_API_URL!;
 
 export async function getBooks() {
   try {
