@@ -67,7 +67,7 @@
     height: calc(100vh - 100%);
     max-height: calc(100vh - 100%);
 
-    transition: max-height 500ms linear;
+    transition: max-height 250ms ease-in-out;
     
     position: absolute;
     top: 100%;
