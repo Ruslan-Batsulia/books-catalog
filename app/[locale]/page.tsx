@@ -2,7 +2,7 @@
 
 import { Provider } from "react-redux";
 import { store } from "@/src/common/redux";
-import { Footer, Header } from "@/src/components";
+import { Footer, Header, Main } from "@/src/components";
 // import { useTranslations } from "next-intl";
 import { useHasMounted } from "@/src/common/hook/useHasMounted";
 
@@ -16,9 +16,7 @@ export default function Home() {
     <>
       <Provider store={store}>
         <Header />
-        <main>
-          
-        </main>
+        <Main />
         <Footer />
       </Provider>
     </>

@@ -1,7 +1,9 @@
 "use client";
 
+import { useMemo } from "react";
 import { useLocale } from "next-intl";
 import DropdownSelect from "./../Dropdown";
+import { useSearchParams } from "next/navigation";
 import { options as languageOptions } from "./data";
 import { usePathname, useRouter } from "@/i18n/navigation";
 
@@ -12,11 +14,23 @@ export default function ChangeLanguage() {
   const pathname = usePathname();
   const currentLocale = useLocale();
 
+  const searchParams = useSearchParams();
+  const query = useMemo(
+    () => Object.fromEntries(searchParams.entries()),
+    [searchParams]
+  );
+
   const nextLocale = currentLocale === "en" ? "uk" : "en";
 
   const changeLanguage = () => {
     try {
-      router.replace(pathname, { locale: nextLocale, scroll: false });
+      router.replace({
+        pathname: pathname,
+        query: query,
+      }, {
+        locale: nextLocale,
+        scroll: false,
+      });
     } catch (error) {
       console.error("Failed to change language:", error);
     }

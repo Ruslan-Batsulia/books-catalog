@@ -1,0 +1,88 @@
+.book-card {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  width: 216px;
+  padding: 10px;
+
+  background-color: var(--searchBackground);
+
+  &__icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    position: relative;
+    width: 196px;
+    height: 294px;
+
+    overflow: hidden;
+  }
+
+  &__icon {
+    object-fit: contain;
+  }
+
+  &__info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    flex: 1 1 auto;
+  }
+
+  &__info-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--secondaryColor);
+  }
+
+  &__info-author-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    margin-top: auto;
+  }
+
+  &__info-author {
+    display: block;
+    width: 100%;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    position: relative;
+    padding-left: 10px;
+
+    font-size: 14px;
+    font-weight: 300;
+
+    &::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--primaryColor);
+    }
+  }
+
+  &__icon-skeleton-container,
+  &__info-author-skeleton-container,
+  &__info-title-skeleton-container {
+    min-width: 196px;
+  }
+
+  &__icon-skeleton {
+    height: 294px;
+  }
+
+  &__info-title-skeleton {
+    height: 27px;
+  }
+
+  &__info-author-skeleton {
+    height: 21px;
+  }
+}

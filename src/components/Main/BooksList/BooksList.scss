@@ -1,0 +1,41 @@
+.books-list {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+  align-items: stretch;
+
+  &__skeleton-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    width: 216px;
+    padding: 10px;
+
+    background-color: var(--searchBackground);
+  }
+
+  &__skeleton-card-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  &__skeleton-card-icon-container,
+  &__skeleton-card-info-title-container,
+  &__skeleton-card-info-author-container {
+    min-width: 196px;
+  }
+
+  &__skeleton-card-icon-skeleton {
+    height: 294px;
+  }
+
+  &__skeleton-card-info-title-skeleton {
+    height: 27px;
+  }
+
+  &__skeleton-card-info-author-skeleton {
+    height: 21px;
+  }
+}
