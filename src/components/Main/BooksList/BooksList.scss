@@ -1,4 +1,11 @@
 .books-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  @include onlyTablet {
+    align-items: center;
+  }
 
   &__card-container {
     display: flex;
@@ -8,7 +15,7 @@
     align-items: stretch;
   
     @include tablet {
-      gap: 50px;
+      // justify-content: space-between;
     }
   
     @include desktop {
@@ -24,7 +31,7 @@
     width: 100%;
     padding: 10px;
 
-    background-color: var(--searchBackground);
+    background-color: var(--secondaryBackground);
 
     @include tablet {
       width: 216px;

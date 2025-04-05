@@ -1,8 +1,9 @@
 "use client";
 
+import React, { useState } from "react";
 import { Book } from "@/src/common/types";
 import BookCard from "./BookCard/BookCard";
-// import { useRouter } from "@/i18n/navigation";
+import Pagination from "./Pagination/Pagination";
 import { useSearchParams } from "next/navigation";
 import { useGetBooksQuery } from "@/src/common/api";
 
@@ -11,27 +12,36 @@ import "./BooksList.scss";
 export default function BooksList() {
   const params = useSearchParams();
   const page = Number(params.get("page") || 1);
-
+  const [currentPage, setCurrentPage] = useState(page);
+  
   const queryParams = {
     page: page,
   };
-
+  
   const { data, isLoading, isError } = useGetBooksQuery(queryParams);
   const books: Book[] = data?.results || [];
-
+  const booksCount: number = data?.count || 1;
+  
+  const totalPages = Math.ceil(booksCount / 10);
+  
   const bookIcon = (number: number) => books[number]?.resources?.find(
     (icon) => icon.type === "image/jpeg" && icon.uri.includes("cover.medium.jpg")
   )?.uri;
-
+  
   const bookAuthor = (number: number) => books[number]?.agents?.filter(
     (author) => author.type === "Author"
   ).map((author) => author.person);
-
+  
   const bookTitle = (number: number) => books[number]?.title;
-
+  
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+  
   return (
     <>
       <section className={"books-list"}>
+        <Pagination totalPages={totalPages} currentPage={currentPage} onPageChange={handlePageChange} />
         {(isLoading) ? (
           <div className={"books-list__card-container"}>
             {[...Array(10)].map((_, i) => {
@@ -68,6 +78,7 @@ export default function BooksList() {
             })}
           </div>
         )}
+        <Pagination totalPages={totalPages} currentPage={currentPage} onPageChange={handlePageChange} />
       </section>
     </>
   );
