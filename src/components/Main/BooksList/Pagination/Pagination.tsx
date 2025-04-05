@@ -1,5 +1,7 @@
 "use client";
 
+import { useMemo } from "react";
+
 import "./Pagination.scss";
 
 type PaginationProps = {
@@ -13,13 +15,12 @@ export default function Pagination({
   currentPage,
   onPageChange,
 }: PaginationProps) {
-  const generatePageNumbers: (string | number)[] =  (totalPages <= 5)
-    ? Array.from({ length: totalPages }, (_, index) => index + 1)
-    : currentPage < 3
-    ? [1, 2, 3, "...", totalPages]
-    : currentPage > totalPages - 2
-    ? [1, "...", totalPages - 2, totalPages - 1, totalPages]
-    : [1, "...", currentPage, "...", totalPages];
+  const generatePageNumbers = useMemo<(string | number)[]>(() => {
+    if (totalPages <= 5) return Array.from({ length: totalPages }, (_, index) => index + 1);
+    if (currentPage < 3) return [1, 2, 3, "...", totalPages];
+    if (currentPage > totalPages - 2) return [1, "...", totalPages - 2, totalPages - 1, totalPages];
+    return [1, "...", currentPage, "...", totalPages];
+  }, [totalPages, currentPage]);
   
   const handlePageChange = (page: number) => {
     if (page !== currentPage && page >= 1 && page <= totalPages) {
@@ -46,7 +47,7 @@ export default function Pagination({
           (currentPage === 1 ? "pagination__button--disabled " : "")
         }
       >
-        {"<"}
+        {"⏴"}
       </button>
 
       {generatePageNumbers.map((page, i) => {
@@ -54,13 +55,14 @@ export default function Pagination({
           <button
             key={i}
             onClick={() => typeof page === "number" && handlePageChange(page)}
-            disabled={typeof page === "string" || page === currentPage}
+            disabled={page === "..." || page === currentPage}
             className={
               "pagination__page " +
               "pagination__button " +
               (typeof page === "number" && page === currentPage ? "pagination__active " : "") +
-              (typeof page === "string" ? "pagination__triplet " : "")
+              (page === "..." ? "pagination__triplet " : "")
             }
+            aria-current={typeof page === "number" && page === currentPage ? "page" : undefined}
           >
             {page}
           </button>
@@ -76,7 +78,7 @@ export default function Pagination({
           (currentPage === totalPages ? "pagination__button--disabled " : "")
         }
       >
-        {">"}
+        {"⏵"}
       </button>
     </div>
   );

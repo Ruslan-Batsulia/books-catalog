@@ -38,6 +38,8 @@
     width: 80px;
     height: 120px;
 
+    border: 1px solid var(--primaryBorder);
+    border-radius: 5px;
     overflow: hidden;
 
     flex: 0 0 auto;
@@ -50,8 +52,6 @@
 
   &__icon {
     object-fit: fill;
-
-    border-radius: 5px;
   }
 
   &__info-container {

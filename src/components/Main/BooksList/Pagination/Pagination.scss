@@ -17,9 +17,8 @@
     justify-content: center;
 
     min-width: 30px;
-    height: fit-content;
 
-    padding: 9px 10px;
+    padding: 8px 10px;
     border: 1px solid var(--primaryBorder);
     border-radius: 4px;
 
@@ -48,8 +47,6 @@
       
       background-color: transparent !important;
 
-      // border: 1px solid var(--primaryBorder) !important;
-
       &:hover,
       &:active {
         background-color: transparent !important;
@@ -60,12 +57,13 @@
   &__triplet {
     font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
     color: var(--primaryColor);
-    line-height: 2.5;
-    letter-spacing: 1.19px;
+    letter-spacing: 2px;
+    font-weight: 900;
 
-    background-color: transparent;
-    padding: 0 8px;
+    display: flex;
     align-items: flex-end;
+    background-color: transparent;
+    padding: 0 4px;
 
     cursor: default;
     border: none;
@@ -95,13 +93,5 @@
     line-height: 1.5;
 
     padding: 0;
-  }
-
-  &__prev.pagination__button--disabled,
-  &__next.pagination__button--disabled {
-    font-size: 12px !important;
-    line-height: 1 !important;
-
-    padding: 9px 10px !important;
   }
 }
