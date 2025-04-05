@@ -5,6 +5,7 @@
 
 html {
   box-sizing: border-box;
+  position: relative;
 }
 
 *,
@@ -13,17 +14,13 @@ html {
   box-sizing: inherit;
 }
 
-body, html {
-  position: relative;
-}
-
 body {
-  display: flex;
-  flex-direction: column;
+  position: relative;
   overflow-x: hidden;
+  scroll-behavior: auto;
   
   min-width: 375px;
-  height: 110vh;
+  min-height: 110vh;
 
   background-color: var(--primaryBackground);
   color: var(--primaryColor);
