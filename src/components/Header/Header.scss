@@ -41,7 +41,7 @@
     align-items: center;
     gap: 4px;
 
-    flex: 0 1 auto;
+    flex: 0 0 auto;
   }
 
   &__logo-img {
@@ -62,7 +62,7 @@
   }
   
   &__menu-container {
-    flex: 1 1 auto;
+    flex: 1 0 auto;
     width: 100%;
     height: calc(100vh - 100%);
     max-height: calc(100vh - 100%);
@@ -156,7 +156,7 @@
     height: 100%;
     width: 100%;
 
-    flex: 0 1 auto;
+    flex: 0 0 auto;
 
     @include onlyTablet {
       width: 50%;
@@ -223,7 +223,7 @@
 
     height: 100%;
 
-    flex: 0 1 auto;
+    flex: 0 0 auto;
   }
 
   &__favorite-btn {
@@ -258,7 +258,7 @@
 
     height: 100%;
 
-    flex: 0 1 auto;
+    flex: 0 0 auto;
   }
 
   &__reading-btn {

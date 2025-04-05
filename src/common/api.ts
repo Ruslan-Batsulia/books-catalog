@@ -1,19 +1,27 @@
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { BooksResponse } from "./types";
 
 const API_URL: string = process.env.NEXT_PUBLIC_API_URL!;
 
-export async function getBooks() {
-  try {
-    const response = await fetch(`${API_URL}/book/`);
+export const getBooksQuery = createApi({
+  reducerPath: "getBooks",
+  baseQuery: fetchBaseQuery({ baseUrl: API_URL }),
+  endpoints: (builder) => ({
+    getBooks: builder.query<BooksResponse, Record<string, string | number | undefined>>({
+      query: (paramsObject) => {
+        const params = new URLSearchParams();
 
-    if (!response.ok) {
-      throw new Error(`Error fetching books: ${response.statusText}`);
-    }
+        Object.entries(paramsObject).forEach(([key, value]) => {
+          if (value !== undefined && value !== "") {
+            params.append(key, value.toString());
+          }
+        });
 
-    const data: BooksResponse = await response.json();
-    return data;
-  } catch (error: unknown) {
-    console.error("Error fetching books:", error);
-    return null;
-  };
-};
+        return `/book/?${params.toString()}`;
+      },
+    }),
+  }),
+  refetchOnMountOrArgChange: false,
+});
+
+export const { useGetBooksQuery } = getBooksQuery;
