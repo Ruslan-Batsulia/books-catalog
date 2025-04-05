@@ -16,9 +16,6 @@ export default function BooksList() {
     page: page,
   };
 
-  // const router = useRouter();
-  
-  
   const { data, isLoading, isError } = useGetBooksQuery(queryParams);
   const books: Book[] = data?.results || [];
 
