@@ -94,4 +94,16 @@
 
     padding: 0;
   }
+
+  &__prev {
+    & .pagination__arrow {
+      transform: rotate(90deg);
+    }
+  }
+
+  &__next {
+    & .pagination__arrow {
+      transform: rotate(-90deg);
+    }
+  }
 }
