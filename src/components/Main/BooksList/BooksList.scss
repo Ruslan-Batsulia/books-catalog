@@ -1,16 +1,19 @@
 .books-list {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-  align-items: stretch;
 
-  @include tablet {
-    gap: 50px;
-  }
-
-  @include desktop {
-    justify-content: space-between;
+  &__card-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    align-items: stretch;
+  
+    @include tablet {
+      gap: 50px;
+    }
+  
+    @include desktop {
+      justify-content: space-between;
+    }
   }
 
   &__skeleton-card-container {

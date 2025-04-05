@@ -75,7 +75,6 @@
   &__info-author-list {
     display: flex;
     flex-direction: column;
-    gap: 5px;
 
     @include tablet {
       margin-top: auto;

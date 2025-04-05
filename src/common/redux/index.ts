@@ -16,15 +16,26 @@ import readingGoalReducer, {
   decrementReadingGoal,
 } from "./slices/readingGoal";
 
-export type StoreType = ReturnType<typeof store.getState>;
+import {
+  getBooksQuery,
+} from "@/src/common/api";
 
 const store = configureStore({
   reducer: {
     readingGoal: readingGoalReducer,
     changeTheme: changeThemeReducer,
     readingProgress: readingProgressReducer,
+    
+    [getBooksQuery.reducerPath]: getBooksQuery.reducer,
   },
+  middleware: (
+    getDefaultMiddleware
+  ) => getDefaultMiddleware().concat(
+    getBooksQuery.middleware
+  ),
 });
+
+export type StoreType = ReturnType<typeof store.getState>;
 
 export {
   store,

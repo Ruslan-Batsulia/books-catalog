@@ -2,33 +2,25 @@
 
 import { Book } from "@/src/common/types";
 import BookCard from "./BookCard/BookCard";
-import { getBooks } from "@/src/common/api";
-import React, { useEffect, useState } from "react";
-
+// import { useRouter } from "@/i18n/navigation";
+import { useSearchParams } from "next/navigation";
+import { useGetBooksQuery } from "@/src/common/api";
 
 import "./BooksList.scss";
 
 export default function BooksList() {
-  const [books, setBooks] = useState<Book[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const params = useSearchParams();
+  const page = Number(params.get("page") || 1);
 
-  useEffect(() => {
-    const fetchBooks = async () => {
-      try {
-        const booksResponse = await getBooks();
-        
-        if (booksResponse) {
-          setBooks(booksResponse.results);
-        }
+  const queryParams = {
+    page: page,
+  };
 
-        setLoading(false);
-      } catch (error: unknown) {
-        console.log("Error: ", error);
-      }
-    }
-
-    fetchBooks();
-  }, []);
+  // const router = useRouter();
+  
+  
+  const { data, isLoading, isError } = useGetBooksQuery(queryParams);
+  const books: Book[] = data?.results || [];
 
   const bookIcon = (number: number) => books[number]?.resources?.find(
     (icon) => icon.type === "image/jpeg" && icon.uri.includes("cover.medium.jpg")
@@ -43,8 +35,8 @@ export default function BooksList() {
   return (
     <>
       <section className={"books-list"}>
-        {(loading) ? (
-          <>
+        {(isLoading) ? (
+          <div className={"books-list__card-container"}>
             {[...Array(10)].map((_, i) => {
               return (
                 <div key={i} className={"books-list__skeleton-card-container"}>
@@ -64,9 +56,9 @@ export default function BooksList() {
                 </div>
               )
             })}
-          </>
+          </div>
         ) : (
-          <>
+          <div className={"books-list__card-container"}>
             {books.map((book, i) => {
               return (
                 <BookCard
@@ -77,7 +69,7 @@ export default function BooksList() {
                 />
               )
             })}
-          </>
+          </div>
         )}
       </section>
     </>

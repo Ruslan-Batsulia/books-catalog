@@ -20,15 +20,13 @@ export default function ChangeLanguage() {
     [searchParams]
   );
 
-  const nextLocale = currentLocale === "en" ? "uk" : "en";
-
-  const changeLanguage = () => {
+  const changeLanguage = (value: "en" | "uk") => {
     try {
       router.replace({
         pathname: pathname,
         query: query,
       }, {
-        locale: nextLocale,
+        locale: value,
         scroll: false,
       });
     } catch (error) {
@@ -39,7 +37,7 @@ export default function ChangeLanguage() {
   return (
     <DropdownSelect
       options={languageOptions}
-      currentValue={currentLocale}
+      currentValue={currentLocale as "en" | "uk"}
       onChange={changeLanguage}
       icon={changeLanguageIcon}
     />
