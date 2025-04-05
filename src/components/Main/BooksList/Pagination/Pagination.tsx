@@ -1,6 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { useMemo } from "react";
+
+import arrow from "@/public/images/dropdown/theme/ArrowDark.svg";
 
 import "./Pagination.scss";
 
@@ -47,7 +50,12 @@ export default function Pagination({
           (currentPage === 1 ? "pagination__button--disabled " : "")
         }
       >
-        {"⏴"}
+        <Image
+          src={arrow}
+          alt="Arrow Icon"
+          height={13}
+          className={"pagination__arrow"}
+        />
       </button>
 
       {generatePageNumbers.map((page, i) => {
@@ -78,7 +86,12 @@ export default function Pagination({
           (currentPage === totalPages ? "pagination__button--disabled " : "")
         }
       >
-        {"⏵"}
+        <Image
+          src={arrow}
+          alt="Arrow Icon"
+          height={13}
+          className={"pagination__arrow"}
+        />
       </button>
     </div>
   );
