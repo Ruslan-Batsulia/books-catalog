@@ -1,13 +1,13 @@
 .main {
   & .container {
-    padding: 30px var(--paddingContainer);
+    padding: 10px var(--paddingContainer);
 
     @include tablet {
-      padding: 40px var(--paddingContainer);
+      padding: 20px var(--paddingContainer);
     }
 
     @include desktop {
-      padding: 50px var(--paddingContainer);
+      padding: 30px var(--paddingContainer);
     }
   }
 }

@@ -16,7 +16,9 @@
     width: 100%;
     padding: 10px;
   
-    background-color: var(--searchBackground);
+    background-color: var(--secondaryBackground);
+    border: 1px solid var(--primaryBorder);
+    border-radius: 8px;
 
     @include tablet {
       flex-direction: column;
@@ -36,6 +38,8 @@
     width: 80px;
     height: 120px;
 
+    border: 1px solid var(--primaryBorder);
+    border-radius: 5px;
     overflow: hidden;
 
     flex: 0 0 auto;
@@ -47,7 +51,7 @@
   }
 
   &__icon {
-    object-fit: contain;
+    object-fit: fill;
   }
 
   &__info-container {

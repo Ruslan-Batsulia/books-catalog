@@ -17,10 +17,10 @@ html {
 body {
   position: relative;
   overflow-x: hidden;
-  scroll-behavior: auto;
   
   min-width: 375px;
   min-height: 110vh;
+  scroll-margin-top: 60px;
 
   background-color: var(--primaryBackground);
   color: var(--primaryColor);
