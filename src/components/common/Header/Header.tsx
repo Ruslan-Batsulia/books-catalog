@@ -1,9 +1,9 @@
 "use client";
 
-import Image, { StaticImageData } from "next/image";
 import Search from "./Search/Search";
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
+import Image, { StaticImageData } from "next/image";
 import ReadingProgress from "./ReadingProgress/ReadingProgress";
 import { useChangeTheme } from "@/src/common/hook/useChangeTheme";
 

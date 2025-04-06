@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { ChangeLanguage, ChangeTheme } from "../common/Dropdown";
+import { ChangeLanguage, ChangeTheme } from "./../Dropdown";
 
 import logo from "@/public/images/logo.svg";
 

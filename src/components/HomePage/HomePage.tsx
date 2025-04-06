@@ -1,10 +1,8 @@
-"use client";
-
 import BooksList from "./BooksList/BooksList";
 
-import "./Main.scss";
+import "./HomePage.scss";
 
-export default function Main() {
+export default function HomePage() {
   return (
     <main className={"main"}>
       <div className="container">

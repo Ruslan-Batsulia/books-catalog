@@ -2,7 +2,15 @@
   position: relative;
   display: flex;
 
-  width: 100%;
+  min-width: 216px;
+
+  @include desktop {
+    &:hover &__wrapper {
+      position: absolute !important;
+
+      transform: scale(1.1);
+    }
+  }
 
   @include tablet {
     width: initial;
@@ -19,13 +27,13 @@
     background-color: var(--secondaryBackground);
     border: 1px solid var(--primaryBorder);
     border-radius: 8px;
+    
+    transition: transform 150ms linear;
 
     @include tablet {
       flex-direction: column;
-      gap: 25px;
 
       width: 216px;
-      padding: 10px;
     }
   }
 
@@ -43,6 +51,7 @@
     overflow: hidden;
 
     flex: 0 0 auto;
+    cursor: pointer;
 
     @include tablet {
       width: 196px;
@@ -79,6 +88,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
 
+    height: 54px;
+
     @include tablet {
       font-size: 18px;
     }
@@ -87,6 +98,8 @@
   &__info-author-list {
     display: flex;
     flex-direction: column;
+
+    height: 42px;
 
     @include tablet {
       margin-top: auto;

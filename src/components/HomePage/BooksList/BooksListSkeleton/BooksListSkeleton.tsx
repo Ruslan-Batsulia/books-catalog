@@ -18,9 +18,11 @@ export default function BooksListSkeleton({skeletonCount}: BooksListSkeletonProp
           <div className={"books-list-skeleton__skeleton-card-info-container"}>
             <div className={"books-list-skeleton__skeleton-card-info-title-container skeleton-container"}>
               <div className={"books-list-skeleton__skeleton-card-info-title-skeleton skeleton"} />
+              <div className={"books-list-skeleton__skeleton-card-info-title-skeleton skeleton"} />
             </div>
   
             <div className={"books-list-skeleton__skeleton-card-info-author-container skeleton-container"}>
+              <div className={"books-list-skeleton__skeleton-card-info-author-skeleton skeleton"} />
               <div className={"books-list-skeleton__skeleton-card-info-author-skeleton skeleton"} />
             </div>
           </div>

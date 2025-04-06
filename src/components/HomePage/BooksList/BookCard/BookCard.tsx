@@ -3,23 +3,29 @@
 import Image from "next/image";
 
 import "./BookCard.scss";
+import { Link } from "@/i18n/navigation";
 
 type BookCardProps = {
   icon?: string | undefined;
   title?: string | undefined;
   author?: string[] | undefined;
+  bookId?: number | undefined;
 };
 
 export default function BookCard({
   icon,
   title,
   author,
+  bookId,
 }: BookCardProps) {
   return (
     <>
       <div className={"book-card"}>
         <div className={"book-card__wrapper"}>
-          <div className={"book-card__icon-container"}>
+          <Link
+            className={"book-card__icon-container"}
+            href={"/book/" + (bookId)}
+          >
             {(icon) ? (
               <Image
                 src={icon}
@@ -34,7 +40,7 @@ export default function BookCard({
                 <div className={"book-card__icon-skeleton skeleton"} />
               </div>
             )}
-          </div>
+          </Link>
 
           <div className={"book-card__info-container"}>
             {(title) ? (

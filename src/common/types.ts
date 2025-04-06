@@ -1,4 +1,4 @@
-export type Book = {
+export type BookType = {
   id: number;
   type: null | string;
   title: string;
@@ -20,9 +20,9 @@ export type Book = {
   }[];
 };
 
-export type BooksResponse = {
+export type BooksResponseType = {
   count: number;
   next: string | null;
   previous: string | null;
-  results: Book[];
+  results: BookType[];
 };

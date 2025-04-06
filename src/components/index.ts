@@ -1,3 +1,4 @@
-export { default as Header } from "./Header/Header";
-export { default as Main } from "./Main/Main";
-export { default as Footer } from "./Footer/Footer";
+export { default as HomePage } from "./HomePage/HomePage";
+export { default as BookPage } from "./BookPage/BookPage";
+export { default as Header } from "./common/Header/Header";
+export { default as Footer } from "./common/Footer/Footer";

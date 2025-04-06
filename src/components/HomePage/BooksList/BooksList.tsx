@@ -1,7 +1,7 @@
 "use client";
 
 import { useLocale } from "next-intl";
-import { Book } from "@/src/common/types";
+import { BookType } from "@/src/common/types";
 import BookCard from "./BookCard/BookCard";
 import Pagination from "./Pagination/Pagination";
 import { useSearchParams } from "next/navigation";
@@ -22,33 +22,27 @@ export default function BooksList() {
     () => Object.fromEntries(searchParams.entries()),
     [searchParams]
   );
-  const page = Number(query.page || 1);
-  const [currentPage, setCurrentPage] = useState(page);
+  const [currentPage, setCurrentPage] = useState<number>(Number(query.page || 1));
   
   const queryParams = {
-    page: page,
+    page: currentPage,
   };
   
   const { data, isLoading, isFetching, /*isError*/ } = useGetBooksQuery(queryParams);
-  const booksResults: Book[] = data?.results || [];
+  const booksResults: BookType[] = data?.results || [];
   const booksCount: number = data?.count || 10;
   
   const totalPages = Math.ceil(booksCount / 10);
 
   const books = {
-    icon: (book: Book) => book.resources?.find(
+    icon: (book: BookType) => book.resources?.find(
       (icon) => icon.type === "image/jpeg" && icon.uri.includes("cover.medium.jpg")
     )?.uri,
-    title: (book: Book) => book.title,
-    author: (book: Book) => book.agents?.filter(
+    author: (book: BookType) => book.agents?.filter(
       (author) => author.type === "Author"
-    ).map((author) => author.person)
+    ).map((author) => author.person),
   };
 
-  useEffect(() => {
-    setCurrentPage(page);
-  }, [page]);
-  
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
 
@@ -93,8 +87,9 @@ export default function BooksList() {
               return (
                 <BookCard
                   key={book.id}
+                  bookId={book.id}
+                  title={book.title}
                   icon={books.icon(book)}
-                  title={books.title(book)}
                   author={books.author(book)}
                 />
               )

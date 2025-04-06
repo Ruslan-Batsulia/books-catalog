@@ -1,23 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import changeThemeReducer, {
-  setChangeTheme,
-} from "./slices/changeThemeSlice";
-
-import readingProgressReducer, {
-  setReadingProgress,
-  incrementReadingProgress,
-  decrementReadingProgress,
-} from "./slices/readingProgress";
-
-import readingGoalReducer, {
-  setReadingGoal,
-  incrementReadingGoal,
-  decrementReadingGoal,
-} from "./slices/readingGoal";
+import {
+  readingGoalReducer,
+  changeThemeReducer,
+  favoriteBooksReducer,
+  readingProgressReducer,
+} from "./slices";
 
 import {
   getBooksQuery,
+  getBookByIdQuery,
 } from "@/src/common/api";
 
 const store = configureStore({
@@ -25,25 +17,19 @@ const store = configureStore({
     readingGoal: readingGoalReducer,
     changeTheme: changeThemeReducer,
     readingProgress: readingProgressReducer,
+    favoriteBooks: favoriteBooksReducer,
     
     [getBooksQuery.reducerPath]: getBooksQuery.reducer,
+    [getBookByIdQuery.reducerPath]: getBookByIdQuery.reducer,
   },
   middleware: (
     getDefaultMiddleware
   ) => getDefaultMiddleware().concat(
-    getBooksQuery.middleware
+    getBooksQuery.middleware,
+    getBookByIdQuery.middleware
   ),
 });
 
 export type StoreType = ReturnType<typeof store.getState>;
 
-export {
-  store,
-  setChangeTheme,
-  setReadingGoal,
-  setReadingProgress,
-  incrementReadingGoal,
-  decrementReadingGoal,
-  incrementReadingProgress,
-  decrementReadingProgress,
-};
+export { store };
