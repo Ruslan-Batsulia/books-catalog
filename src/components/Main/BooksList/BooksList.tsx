@@ -4,10 +4,11 @@ import { useLocale } from "next-intl";
 import { Book } from "@/src/common/types";
 import BookCard from "./BookCard/BookCard";
 import Pagination from "./Pagination/Pagination";
-import React, { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useGetBooksQuery } from "@/src/common/api";
 import { usePathname, useRouter } from "@/i18n/navigation";
+import React, { useEffect, useMemo, useState } from "react";
+import BooksListSkeleton from "./BooksListSkeleton/BooksListSkeleton";
 
 import "./BooksList.scss";
 
@@ -29,20 +30,20 @@ export default function BooksList() {
   };
   
   const { data, isLoading, isFetching, /*isError*/ } = useGetBooksQuery(queryParams);
-  const books: Book[] = data?.results || [];
+  const booksResults: Book[] = data?.results || [];
   const booksCount: number = data?.count || 10;
   
   const totalPages = Math.ceil(booksCount / 10);
-  
-  const bookIcon = (number: number) => books[number]?.resources?.find(
-    (icon) => icon.type === "image/jpeg" && icon.uri.includes("cover.medium.jpg")
-  )?.uri;
-  
-  const bookAuthor = (number: number) => books[number]?.agents?.filter(
-    (author) => author.type === "Author"
-  ).map((author) => author.person);
-  
-  const bookTitle = (number: number) => books[number]?.title;
+
+  const books = {
+    icon: (book: Book) => book.resources?.find(
+      (icon) => icon.type === "image/jpeg" && icon.uri.includes("cover.medium.jpg")
+    )?.uri,
+    title: (book: Book) => book.title,
+    author: (book: Book) => book.agents?.filter(
+      (author) => author.type === "Author"
+    ).map((author) => author.person)
+  };
 
   useEffect(() => {
     setCurrentPage(page);
@@ -77,44 +78,34 @@ export default function BooksList() {
   return (
     <>
       <section className={"books-list"}>
-        <Pagination totalPages={totalPages} currentPage={currentPage} onPageChange={handlePageChange} />
+        <Pagination
+          totalPages={totalPages}
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+        />
         {(isLoading || isFetching) ? (
           <div className={"books-list__card-container"}>
-            {[...Array(10)].map((_, i) => {
-              return (
-                <div key={i} className={"books-list__skeleton-card-container"}>
-                  <div className={"books-list__skeleton-card-icon-container skeleton-container"}>
-                    <div className={"books-list__skeleton-card-icon-skeleton skeleton"} />
-                  </div>
-
-                  <div className={"books-list__skeleton-card-info-container"}>
-                    <div className={"books-list__skeleton-card-info-title-container skeleton-container"}>
-                      <div className={"books-list__skeleton-card-info-title-skeleton skeleton"} />
-                    </div>
-
-                    <div className={"books-list__skeleton-card-info-author-container skeleton-container"}>
-                      <div className={"books-list__skeleton-card-info-author-skeleton skeleton"} />
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
+            <BooksListSkeleton skeletonCount={10} />
           </div>
         ) : (
           <div className={"books-list__card-container"}>
-            {books.map((book, i) => {
+            {booksResults.map((book) => {
               return (
                 <BookCard
                   key={book.id}
-                  icon={bookIcon(i)}
-                  title={bookTitle(i)}
-                  author={bookAuthor(i)}
+                  icon={books.icon(book)}
+                  title={books.title(book)}
+                  author={books.author(book)}
                 />
               )
             })}
           </div>
         )}
-        <Pagination totalPages={totalPages} currentPage={currentPage} onPageChange={handlePageChange} />
+        <Pagination
+          totalPages={totalPages}
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+        />
       </section>
     </>
   );
