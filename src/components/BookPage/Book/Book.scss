@@ -1,0 +1,92 @@
+.book {
+  display: flex;
+
+  &__info-left {
+    display: flex;
+
+    // height: 100vh;
+    
+    border-right: 1px solid var(--primaryBorder);
+  }
+
+  &__info-right {
+    display: flex;
+    flex-direction: column;
+
+    padding: 25px;
+    width: 100%;
+  }
+
+  &__title-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    padding: 0 10px;
+    padding-bottom: 5px;
+    color: var(--secondaryColor);
+  }
+
+  &__title-book {
+    line-height: 1;
+  }
+
+  &__description-title {
+    line-height: 1;
+  }
+
+  &__description-container {
+    padding: 25px 10px;
+
+    border: 1px solid var(--primaryBorder);
+    border-left: 0;
+    border-right: 0;
+  }
+
+  &__icon-wrapper {
+    padding: 25px;
+    border-bottom: 1px solid var(--primaryBorder);
+    height: fit-content;
+  }
+
+  &__icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    position: relative;
+    width: 80px;
+    height: 120px;
+
+    border: 1px solid var(--primaryBorder);
+    border-radius: 5px;
+    overflow: hidden;
+
+    flex: 0 0 auto;
+
+    @include tablet {
+      width: 196px;
+      height: 294px;
+    }
+  }
+
+  &__icon {
+    object-fit: fill;
+  }
+
+  &__icon-skeleton-container {
+    min-width: 80px;
+
+    @include tablet {
+      min-width: 196px;
+    }
+  }
+
+  &__icon-skeleton {
+    height: 120px;
+
+    @include tablet {
+      height: 294px;
+    }
+  }
+}
