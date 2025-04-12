@@ -1,0 +1,18 @@
+export const bookshelf: string[] = [
+  "The Haslemere Museum Gazette",
+  "The Irish Penny Journal",
+  "The Mayflower",
+  "Mediæval Town Series",
+  "The American Journal of Archaeology",
+  "PT História",
+  "The Journal of Negro History",
+  "Current History",
+  "English Civil War",
+  "IT Storia",
+  "Famous Scots Series",
+  "Archaeology",
+  "Slavery",
+  "FR Histoire",
+  "Classical Antiquity",
+  "Children's History",
+] as const;

@@ -1,0 +1,18 @@
+export const bookshelf: string[] = [
+  "IT Archeologia e Storia dell'arte",
+  "IT Architettura",
+  "FR Beaux-Arts",
+  "Illustrators",
+  "IT Arte varia",
+  "PT Arte",
+  "FR Illustrateurs",
+  "FR Peinture",
+  "Photography",
+  "The American Architect and Building News",
+  "L'Illustration",
+  "The Brochure Series of Architectural Illustration",
+  "Masterpieces in Colour",
+  "Art",
+  "Architecture",
+  "Opera",
+] as const;

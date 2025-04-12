@@ -26,3 +26,15 @@ export type BooksResponseType = {
   previous: string | null;
   results: BookType[];
 };
+
+export type CategoryFromSubjectsData = {
+  title: string;
+  subjects: string[];
+  description: string;
+};
+
+export type CategoryFromBookshelfData = {
+  title: string;
+  bookshelf: string[];
+  description: string;
+};

@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import React, { useEffect, useState } from "react";
 import { useGetBookByIdQuery } from "@/src/common/api";
+import React, { useCallback, useEffect, useState } from "react";
+import { useMatchBookCategories } from "@/src/common/hook/useMatchBookCategories";
 
 import "./Book.scss";
 
@@ -15,10 +16,14 @@ type BookState = {
   icon: string | undefined;
   title: string | undefined;
   description: string | null | undefined;
+  subjects: string[] | undefined;
+  bookshelves: string[] | undefined;
 };
 
 export default function Book({ bookId }: BookProps) {
-  const translate = useTranslations("BookPage");
+  const translateBookPage = useTranslations("BookPage");
+  const translateCategory = useTranslations("Category");
+  const locale = useCallback((key: string) => translateCategory(key), [translateCategory]);
   const [book, setBook] = useState<BookState | undefined>(undefined);
   const { data, isLoading, isFetching, /*isError*/ } = useGetBookByIdQuery(bookId);
 
@@ -29,12 +34,16 @@ export default function Book({ bookId }: BookProps) {
       )?.uri,
       title: data?.title,
       description: data?.description,
+      subjects: data?.subjects,
+      bookshelves: data?.bookshelves,
     });
   }, [data]);
 
+  const [categories] = useMatchBookCategories(book?.bookshelves || [], locale);
+
   return (
     <section className="book">
-      {(/*isLoading || isFetching*/ false) ? (
+      {(isLoading || isFetching) ? (
         <div>{"Loading"}</div>
       ) : (
         <>
@@ -66,7 +75,7 @@ export default function Book({ bookId }: BookProps) {
               </h1>
 
               <span className={"book__description-title"}>
-                {translate("description")}
+                {translateBookPage("description")}
               </span>
             </div>
             <div className={"book__description-container"}>

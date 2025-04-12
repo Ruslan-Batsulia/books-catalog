@@ -1,0 +1,92 @@
+{
+  "Category": {
+    "language_literature_books": {
+      "title": "Мова та література",
+      "description": ""
+    },
+    "fiction_books": {
+      "title": "Художня література",
+      "description": ""
+    },
+    "other_books": {
+      "title": "Інше",
+      "description": ""
+    },
+    "religion_spirituality_books": {
+      "title": "Релігія та духовність",
+      "description": ""
+    },
+    "biography_memoir_books": {
+      "title": "Біографії та мемуари",
+      "description": ""
+    },
+    "politics_society_books": {
+      "title": "Політика та суспільство",
+      "description": ""
+    },
+    "science_nature_books": {
+      "title": "Наука та природа",
+      "description": ""
+    },
+    "philosophy_books": {
+      "title": "Філософія",
+      "description": ""
+    },
+    "geography_places_books": {
+      "title": "Географія та місцевості",
+      "description": ""
+    },
+    "history_books": {
+      "title": "Історія",
+      "description": ""
+    },
+    "art_photography_books": {
+      "title": "Мистецтво та фотографія",
+      "description": ""
+    },
+    "travel_books": {
+      "title": "Подорожі",
+      "description": ""
+    },
+    "military_war_books": {
+      "title": "Військова тематика та війна",
+      "description": ""
+    },
+    "mythology_folklore_books": {
+      "title": "Міфологія та фольклор",
+      "description": ""
+    },
+    "computers_technology_books": {
+      "title": "Комп’ютери та технології",
+      "description": ""
+    },
+    "self_help_psychology_books": {
+      "title": "Самодопомога та психологія",
+      "description": ""
+    },
+    "children_teens_books": {
+      "title": "Дитяча та підліткова література",
+      "description": ""
+    },
+    "education_books": {
+      "title": "Освіта",
+      "description": ""
+    },
+    "business_economics_books": {
+      "title": "Бізнес та економіка",
+      "description": ""
+    },
+    "law_legal_books": {
+      "title": "Право та юридична література",
+      "description": ""
+    },
+    "medical_health_books": {
+      "title": "Медицина та здоров’я",
+      "description": ""
+    },
+    "mathematics_books": {
+      "title": "Математика",
+      "description": ""
+    }
+  }
+}

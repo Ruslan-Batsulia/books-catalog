@@ -1,0 +1,17 @@
+export const bookshelf: string[] = [
+  "IT Discorsi e Orazioni",
+  "The Speaker",
+  "Anarchism",
+  "IT Scienze politiche",
+  "FR Services publics",
+  "The Great Round World And What Is Going On In It",
+  "Sociology",
+  "Racism",
+  "PT Política e Sociedade",
+  "Anthropology",
+  "McClure's Magazine",
+  "Suffrage",
+  "FR Politique",
+  "FR Peuples et Sociétés",
+  "Politics",
+] as const;

@@ -1,0 +1,92 @@
+{
+  "Category": {
+    "language_literature_books": {
+      "title": "Language & Literature",
+      "description": ""
+    },
+    "fiction_books": {
+      "title": "Fiction",
+      "description": ""
+    },
+    "other_books": {
+      "title": "Other",
+      "description": ""
+    },
+    "religion_spirituality_books": {
+      "title": "Religion & Spirituality",
+      "description": ""
+    },
+    "biography_memoir_books": {
+      "title": "Biography & Memoir",
+      "description": ""
+    },
+    "politics_society_books": {
+      "title": "Politics & Society",
+      "description": ""
+    },
+    "science_nature_books": {
+      "title": "Science & Nature",
+      "description": ""
+    },
+    "philosophy_books": {
+      "title": "Philosophy",
+      "description": ""
+    },
+    "geography_places_books": {
+      "title": "Geography & Places",
+      "description": ""
+    },
+    "history_books": {
+      "title": "History",
+      "description": ""
+    },
+    "art_photography_books": {
+      "title": "Art & Photography",
+      "description": ""
+    },
+    "travel_books": {
+      "title": "Travel",
+      "description": ""
+    },
+    "military_war_books": {
+      "title": "Military & War",
+      "description": ""
+    },
+    "mythology_folklore_books": {
+      "title": "Mythology & Folklore",
+      "description": ""
+    },
+    "computers_technology_books": {
+      "title": "Computers & Technology",
+      "description": ""
+    },
+    "self_help_psychology_books": {
+      "title": "Self-help & Psychology",
+      "description": ""
+    },
+    "children_teens_books": {
+      "title": "Children & Teens",
+      "description": ""
+    },
+    "education_books": {
+      "title": "Education",
+      "description": ""
+    },
+    "business_economics_books": {
+      "title": "Business & Economics",
+      "description": ""
+    },
+    "law_legal_books": {
+      "title": "Law & Legal",
+      "description": ""
+    },
+    "medical_health_books": {
+      "title": "Medical & Health",
+      "description": ""
+    },
+    "mathematics_books": {
+      "title": "Mathematics",
+      "description": ""
+    }
+  }
+}

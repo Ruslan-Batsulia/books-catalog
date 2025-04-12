@@ -58,7 +58,7 @@ export default function Header() {
     <header className={"header"}>
       <div className={"container"}>
         <div className={"header__logo"}>
-          <Image src={logo} alt={"Logo"} className={"header__logo-img"} />
+          <Image src={logo} alt={"Logo"} className={"header__logo-img"} priority={true} />
           <span className={"header__logo-title"}>{"Books Catalog"}</span>
         </div>
 
